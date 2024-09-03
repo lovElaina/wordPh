@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "药丸翻译",
-  "version": "1.0",
+  "version": "2.0",
   "description": "一个用于翻译选中文字的Chrome扩展程序，基于大模型技术，给您带来最佳的翻译结果。",
   "permissions": [
     "contextMenus",

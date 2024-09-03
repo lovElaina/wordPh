@@ -17,13 +17,8 @@ chrome.runtime.onConnect.addListener((port) => {
                         throw new Error('流响应未启用或服务器不支持SSE。');
                     }
 
-
                     const reader = response.body.getReader();
-                    console.log("=============reader=============")
-                    console.log(reader)
                     const decoder = new TextDecoder("utf-8");
-                    console.log("=============decoder=============")
-                    console.log(decoder)
 
                     async function readStream() {
                         let completeText = "";
