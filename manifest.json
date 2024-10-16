@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "药丸翻译",
   "version": "2.0",
-  "description": "一个用于翻译选中文字的Chrome扩展程序，基于大模型技术，给您带来最佳的翻译结果。",
+  "description": "在网页中翻译选中的文本，并提供关键词和语法分析功能。基于大模型技术，给您带来最佳的翻译结果。",
   "permissions": [
     "contextMenus",
     "activeTab",
@@ -16,7 +16,9 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
     }
   ],
   "host_permissions": [
@@ -29,6 +31,11 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   }
 }
 

@@ -1,3 +1,13 @@
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.sync.set({
+        pluginEnabled: true,           // 默认插件开启
+        themeColor: '#008c7d',         // 默认主题颜色
+        transEnabled: false            // 默认强力翻译关闭
+    }, () => {
+        console.log('默认设置已初始化。');
+    });
+});
+
 chrome.runtime.onConnect.addListener((port) => {
     console.assert(port.name === "translationStream")
     port.onMessage.addListener((message) => {
