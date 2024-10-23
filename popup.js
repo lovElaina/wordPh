@@ -1,6 +1,32 @@
 // popup.js
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 加载已保存的token
+  chrome.storage.sync.get(['accessToken'], (result) => {
+    if (result.accessToken) {
+      document.getElementById('token').value = result.accessToken;
+      document.getElementById('tokenStatus').textContent = 'Token is set';
+    }
+  });
+
+  // 保存token
+  document.getElementById('saveToken').addEventListener('click', () => {
+    const token = document.getElementById('token').value;
+    if (!token) {
+      document.getElementById('tokenStatus').textContent = 'Please enter a token';
+      document.getElementById('tokenStatus').className = 'error';
+      return;
+    }
+
+    chrome.storage.sync.set({
+      accessToken: token
+    }, () => {
+      document.getElementById('tokenStatus').textContent = 'Token saved successfully';
+      document.getElementById('tokenStatus').className = 'status';
+    });
+  });
+
+
   // 获取已保存的颜色并设置为颜色选择器的初始值
   chrome.storage.sync.get(['themeColor'], (result) => {
     // Default color if none is set

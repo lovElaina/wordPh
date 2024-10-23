@@ -78,6 +78,12 @@
       background: none;
       cursor: pointer;
     }
+
+    .container { padding: 15px; min-width: 300px; }
+    .token-section { margin-bottom: 15px; }
+    .input-group { margin-bottom: 10px; }
+    .status { margin-top: 10px; color: green; }
+    .error { color: red; }
   </style>
 </head>
 <body>
@@ -99,6 +105,18 @@
     <input type="checkbox" id="trans-switch">
     <span class="slider"></span>
   </label>
+</div>
+
+<div class="container">
+  <div class="token-section">
+    <div class="input-group">
+      <label>Access Token:</label>
+      <input type="password" id="token" />
+    </div>
+    <button id="saveToken">Save Token</button>
+    <div id="tokenStatus" class="status"></div>
+  </div>
+  <!-- 其他控制项 -->
 </div>
 <script src="popup.js"></script>
 </body>
